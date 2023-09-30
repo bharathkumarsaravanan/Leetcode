@@ -61,3 +61,39 @@ let mat = [[1,2,3,5],
     mat = [[5]]
 
 console.log(diagonalSum(mat));
+
+
+// GPT code 
+
+function diagonalSum(mat) {
+    const n = mat.length;
+    let diagonalSum = 0;
+    
+    for (let i = 0; i < n; i++) {
+        // Add elements from the primary diagonal
+        diagonalSum += mat[i][i];
+        
+        // Add elements from the secondary diagonal (excluding the ones in the primary diagonal)
+        if (i !== n - 1 - i) {
+            diagonalSum += mat[i][n - 1 - i];
+        }
+    }
+    
+    return diagonalSum;
+}
+
+// Example usage
+const mat1 = [[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]];
+
+const mat2 = [[1, 1, 1, 1],
+              [1, 1, 1, 1],
+              [1, 1, 1, 1],
+              [1, 1, 1, 1]];
+
+const mat3 = [[5]];
+
+console.log(diagonalSum(mat1));  // Output: 25
+console.log(diagonalSum(mat2));  // Output: 8
+console.log(diagonalSum(mat3));  // Output: 5
